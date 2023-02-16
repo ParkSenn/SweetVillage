@@ -3,3 +3,4 @@ backports.zoneinfo==0.2.1
 Django==4.1.7
 sqlparse==0.4.3
 tzdata==2022.7
+django-environ==0.9.0
