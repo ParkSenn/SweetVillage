@@ -78,4 +78,4 @@ fabric.properties
 
 .env/
 
-../mvenv/
+../myvenv/
