@@ -10,7 +10,7 @@ def login(request):
         user = auth.authenticate(request, username=usr, password=pwd)
         if user is not None:
             auth.login(request, user)
-            return redirect('sweetvillage')
+            return redirect('quizeapp:new')
         else:
             return render(request, 'login.html')
     elif request.method == 'GET':
@@ -18,7 +18,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('sweetvillage')
+    return redirect('quizeapp:new')
 
 
 def signup(request):
@@ -30,7 +30,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user=authenticate(username=username,password=raw_password)
             auth.login(request,user)
-            return redirect('sweetvillage')
+            return redirect('quizeapp:new')
 
     else:
         form = UserForm()
