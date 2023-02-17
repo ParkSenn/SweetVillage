@@ -1,8 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Question, PnuUser, Answer
 from django.core.paginator import Paginator
 from rest_framework import pagination
 
+
+# 문제만들기
+def new(request) :
+    return render(request, 'home.html')
+
+def detail(request, id):
+    question = get_object_or_404(Question, pk = id)
+    return render(request, 'detail.html',{'question':question})
+
+def home(request):
+    new_question = Question()
+    new_question.option_no = request.POST['option_no']
+    new_question.option_yes = request.POST['option_yes']
+    new_question.question = request.POST['question']
+    new_question.save()
+
+    return redirect('quizeapp:detail', new_question.id)
 
 def quiz_home(request): # 퀴즈 참여자가 호스트 메인 페이지에 들어올 때 user가 자동생성
     if request.GET:
