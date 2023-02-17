@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'sweetapp',
+    'quizeapp',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,38 @@
+<!-- 퀴즈 띄우는 html -->
+{% for i in questions %}
+    Q : {{i.question}}
+    <br><br><br>
+
+    <form action="" method="POST" class="quiz_form">
+        {% csrf_token %}
+        <input type="hidden" name="quiz_id" value="{{ quiz.id }}">
+        <input type="hidden" name="answer" value = "1">
+        <input type="submit" class="options" value="O">
+    </form>
+    <form action="" method="POST" class="quiz_form">
+        {% csrf_token %}
+        <input type="hidden" name="quiz_id" value="{{ quiz.id }}">
+        <input type="hidden" name="answer" value = "0">
+        <input type="submit" class="options" value="X">
+    </form>
+
+    <div class="paginator">
+        {% if questions.has_next %}
+            <a href="?page={{ questions.next_page_number }}" id="save_ans">
+                <button id="next_btn">NEXT</button></a>
+        {% else %}
+                <a href="/result/" id="save_ans">
+                    <button id="submit_btn">답안지 제출</button></a>
+        {% endif %}
+    </div>
+{% endfor %}
+<!-- 
+        <input type="checkbox" name = "pick" id="'optionyes" value="{{i.opotion_yes}}">
+        True => {{i.option_yes}}
+        <br><br><br>
+        <input type="checkbox" name = "pick" id="'optionno" value="{{i.opotion_no}}">
+        False => {{i.option_no}}
+    </form>
+    <br><br><br> -->
+
+
