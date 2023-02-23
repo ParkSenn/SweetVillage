@@ -1,0 +1,12 @@
+
+<div>
+
+<form action="{% url 'quizeapp:home' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>문제를 작성해주세요 : <input type="text" name="question"></p>
+    <p>o : <input type="text" name="option_yes"></p>
+    <p>x : <input type="text" name="option_no"></p>
+    <button type="submit">완료</button>
+</form>
+</div>
+

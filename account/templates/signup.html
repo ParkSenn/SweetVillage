@@ -1,0 +1,17 @@
+<form method="post" action="{% url 'account:signup' %}">
+    {% csrf_token %}
+    <label for="username">이름</label>
+    <input type ="text" class="form-control" name="username" id="username" value="{{form.username.valueldefault_if_none}}">
+    
+    
+    <label for="password1">비번</label>
+    <input type ="password" class="form-control" name="password1" id="password1"
+    value="{{form.password1.valueldefault_if_none}}">
+
+    
+    <label for="password1">비번확인</label>
+    <input type ="password" class="form-control" name="password2" id="password2"
+    value="{{form.password2.valueldefault_if_none}}">
+
+    <button type="submit"> 시작하기 </button>
+</form>
